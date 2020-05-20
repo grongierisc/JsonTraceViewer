@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  iris:
+    build: .
+    restart: always
+    ports:
+      - 51773
+      - 52777:52773
+      - 53773
+    volumes:
+      - ./:/irisdev/app
