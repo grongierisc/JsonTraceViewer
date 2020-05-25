@@ -1,5 +1,11 @@
-Class Demo.Lib.Pex.Message Extends EnsLib.PEX.Message
+Class Grongier.JsonTraceViewer.Message Extends (%Persistent, Ens.Util.MessageBodyMethods, %JSON.Adaptor, %XML.Adaptor) [ Abstract ]
 {
+
+Method GetObjectJson()
+{
+	DO ..%JSONExportToString(.jsonString)
+	QUIT jsonString
+}
 
 /// This method is called by the Management Portal to determine the content type that will be returned by the <method>%ShowContents</method> method.
 /// The return value is a string containing an HTTP content type.
@@ -33,13 +39,26 @@ Method %ShowContentsHead(pZenOutput As %Boolean = 0)
 /// The content should match the type returned by the <method>%GetContentType</method> method.<br>
 Method %ShowContents(pZenOutput As %Boolean = 0)
 {
+	set jsonObject = ..GetObjectJson()
+	set test = {"client":{"firstName":"James","lastName":"Bond","city":{"name":"London","zipCode":"E1 6AN"},"pets":[{"name":"Kitty","category":"cat","color":"white","age":2},{"name":"Craig","category":"cat","color":"grey","age":3}]}}
 	// https://github.com/bazh/jquery.json-view
 	&html<<div id="element"></div>>
-	&html<<script>$(function() {$('#element').jsonView(JSON.stringify(#(..%jsonObject.%ToJSON())#));});</script>>
+	&html<<script>$(function() {$('#element').jsonView(JSON.stringify(#(jsonObject)#));});</script>>
+	#; &html<<script>$(function() {$('#element').jsonView(JSON.stringify(#(test.%ToJSON())#));});</script>>
 }
 
 Storage Default
 {
+<Data name="MessageDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+</Data>
+<DataLocation>^Grongier.JsonTrace831B.MessageD</DataLocation>
+<DefaultData>MessageDefaultData</DefaultData>
+<IdLocation>^Grongier.JsonTrace831B.MessageD</IdLocation>
+<IndexLocation>^Grongier.JsonTrace831B.MessageI</IndexLocation>
+<StreamLocation>^Grongier.JsonTrace831B.MessageS</StreamLocation>
 <Type>%Storage.Persistent</Type>
 }
 
