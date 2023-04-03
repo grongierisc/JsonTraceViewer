@@ -1,5 +1,7 @@
 # JsonTraceViewer
 
+![img](json-message-trace.png)
+
 ## How to Run
 
 1. Open the terminal in this directory and run:
