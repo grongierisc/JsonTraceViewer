@@ -3,8 +3,9 @@ services:
   iris:
     build: .
     restart: always
+    command: --check-caps false --ISCAgent false
     ports:
-      - 51773
+      - 51773:1972
       - 52777:52773
       - 53773
     volumes:
