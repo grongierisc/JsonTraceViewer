@@ -3,6 +3,7 @@ services:
   iris:
     build: .
     restart: always
+    command: --check-caps false --ISCAgent false
     ports:
       - 51773
       - 52777:52773

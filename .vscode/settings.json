@@ -1,15 +1,12 @@
 {
-    "objectscript.conn.port": 52777,
-    "objectscript.conn.active": true,
-    "objectscript.conn.password": "SYS",
-    "objectscript.conn.username": "superuser",
-    "objectscript.compileFlags": "cukb",
-    "objectscript.conn.ns": "DEMO",
     "objectscript.conn": {
-        "port": 52777,
-        "active": false,
+        "docker-compose": {
+            "service": "iris",
+            "internalPort": 52773
+        },
+        "active": true,
         "password": "SYS",
         "username": "superuser",
-        "ns": "DEMO"
+        "ns": "USER"
     }
 }

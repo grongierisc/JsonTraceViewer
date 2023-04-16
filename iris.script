@@ -1,0 +1,10 @@
+    zn "%SYS"
+    Do ##class(Security.Users).UnExpireUserPasswords("*")
+
+    zn "USER"
+
+    do $System.OBJ.LoadDir("/irisdev/app/src","ck",,1)
+
+    do $classmethod("Ens.Director", "SetAutoStart", "Demo.Production", 0)
+
+    halt

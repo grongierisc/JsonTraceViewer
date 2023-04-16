@@ -20,7 +20,7 @@ docker-compose up -d
 
 Open Management Portail 
 
-<http://localhost:52777/csp/sys/UtilHome.csp?$NAMESPACE=DEMO>
+<http://localhost:52777/csp/sys/UtilHome.csp?$NAMESPACE=USER>
 
 Username is _SYSTEM, password is SYS
 
