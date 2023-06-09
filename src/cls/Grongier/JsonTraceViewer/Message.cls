@@ -1,4 +1,4 @@
-Class Grongier.JsonTraceViewer.Message Extends (%Persistent, Ens.Util.MessageBodyMethods, %JSON.Adaptor, %XML.Adaptor) [ Abstract ]
+Class Grongier.JsonTraceViewer.Message Extends (Ens.MessageBody, %JSON.Adaptor) [ Abstract ]
 {
 
 Method GetObjectJson()
@@ -58,16 +58,6 @@ Method %ShowContents(pZenOutput As %Boolean = 0)
 
 Storage Default
 {
-<Data name="MessageDefaultData">
-<Value name="1">
-<Value>%%CLASSNAME</Value>
-</Value>
-</Data>
-<DataLocation>^Grongier.JsonTrace831B.MessageD</DataLocation>
-<DefaultData>MessageDefaultData</DefaultData>
-<IdLocation>^Grongier.JsonTrace831B.MessageD</IdLocation>
-<IndexLocation>^Grongier.JsonTrace831B.MessageI</IndexLocation>
-<StreamLocation>^Grongier.JsonTrace831B.MessageS</StreamLocation>
 <Type>%Storage.Persistent</Type>
 }
 
