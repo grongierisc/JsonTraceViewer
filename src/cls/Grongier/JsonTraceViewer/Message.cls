@@ -3,8 +3,17 @@ Class Grongier.JsonTraceViewer.Message Extends (%Persistent, Ens.Util.MessageBod
 
 Method GetObjectJson()
 {
-	DO ..%JSONExportToString(.jsonString)
-	QUIT jsonString
+	// adding a JSON array on top of the message content 
+	// in order to get the message type and its id  
+	set json=[]
+	set meta={}
+	set meta.type=($classname())
+	set meta.id=(..%Id())
+	do json.%Push(meta)
+	set sc = ..%JSONExportToString(.data)
+	set msg = {}.%FromJSON(data)
+	do json.%Push(msg)
+	QUIT json.%ToJSON()
 }
 
 /// This method is called by the Management Portal to determine the content type that will be returned by the <method>%ShowContents</method> method.
