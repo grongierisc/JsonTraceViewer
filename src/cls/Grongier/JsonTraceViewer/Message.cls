@@ -1,10 +1,19 @@
-Class Grongier.JsonTraceViewer.Message Extends (%Persistent, Ens.Util.MessageBodyMethods, %JSON.Adaptor, %XML.Adaptor) [ Abstract ]
+Class Grongier.JsonTraceViewer.Message Extends (Ens.MessageBody, %JSON.Adaptor) [ Abstract ]
 {
 
 Method GetObjectJson()
 {
-	DO ..%JSONExportToString(.jsonString)
-	QUIT jsonString
+	// adding a JSON array on top of the message content 
+	// in order to get the message type and its id  
+	set json=[]
+	set meta={}
+	set meta.type=($classname())
+	set meta.id=(..%Id())
+	do json.%Push(meta)
+	set sc = ..%JSONExportToString(.data)
+	set msg = {}.%FromJSON(data)
+	do json.%Push(msg)
+	QUIT json.%ToJSON()
 }
 
 /// This method is called by the Management Portal to determine the content type that will be returned by the <method>%ShowContents</method> method.
@@ -53,16 +62,6 @@ Method %ShowContents(pZenOutput As %Boolean = 0)
 
 Storage Default
 {
-<Data name="MessageDefaultData">
-<Value name="1">
-<Value>%%CLASSNAME</Value>
-</Value>
-</Data>
-<DataLocation>^Grongier.JsonTrace831B.MessageD</DataLocation>
-<DefaultData>MessageDefaultData</DefaultData>
-<IdLocation>^Grongier.JsonTrace831B.MessageD</IdLocation>
-<IndexLocation>^Grongier.JsonTrace831B.MessageI</IndexLocation>
-<StreamLocation>^Grongier.JsonTrace831B.MessageS</StreamLocation>
 <Type>%Storage.Persistent</Type>
 }
 

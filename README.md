@@ -1,6 +1,6 @@
 # JsonTraceViewer
 
-![img](https://github.com/grongierisc/JsonTraceViewer/blob/master/json-message-trace.png?raw=true)
+![img](https://github.com/grongierisc/JsonTraceViewer/blob/master/json-message-trace-metadata.png?raw=true)
 
 ## How to Run
 
