@@ -46,6 +46,9 @@ Method %ShowContents(pZenOutput As %Boolean = 0)
 	set jsonObject = ..GetObjectJson()
 	set test = {"client":{"firstName":"James","lastName":"Bond","city":{"name":"London","zipCode":"E1 6AN"},"pets":[{"name":"Kitty","category":"cat","color":"white","age":2},{"name":"Craig","category":"cat","color":"grey","age":3}]}}
 	// https://github.com/bazh/jquery.json-view
+	&html<
+        <i style="color:green;">type: #($classname())#  id: #(..%Id())# </i>
+    >
 	&html<<div id="element"></div>>
 	&html<<script>$(function() {$('#element').jsonView(JSON.stringify(#(jsonObject)#));});</script>>
 	#; &html<<script>$(function() {$('#element').jsonView(JSON.stringify(#(test.%ToJSON())#));});</script>>
