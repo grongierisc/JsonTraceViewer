@@ -16,7 +16,6 @@ Method OnProcessInput(pInput As %RegisteredObject, Output pOutput As %Registered
 	set request.test = "test text"
 	do request.test2.Insert("test array")
 	do request.%Save()
-	
 	set tSC =  ..SendRequestSync("Demo.BO.CustomerOperation", request, .pResponse)
 	if $$$ISERR(tSC) quit tSC
 	Quit $$$OK

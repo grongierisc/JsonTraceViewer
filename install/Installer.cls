@@ -6,12 +6,12 @@ Class App.Installer
 ClassMethod ConfigureAutoStart(pNamespace As %String) As %Status
 {
     Set tSC = $$$OK
-    Try 
+    Try
     {
         ZN pNamespace
         Set tSC = $CLASSMETHOD("Ens.Director", "SetAutoStart", "RestToDll.Production", 0)
-    } 
-    Catch (oException) 
+    }
+    Catch (oException)
     {
         Set tSC = oException.AsStatus()
     }
@@ -25,7 +25,7 @@ XData Install [ XMLNamespace = INSTALLER ]
     <Default Name="DBNAME" Value="DEMO"/>
     <Default Name="APPPATH" Dir="/opt/irisapp/" />
     <Default Name="SOURCESPATH" Dir="${APPPATH}src"/>
-    <Default Name="RESOURCE" Value="%DB_${DBNAME}"/> 
+    <Default Name="RESOURCE" Value="%DB_${DBNAME}"/>
 
     <Log Text="Configuring namespace ${NAMESPACE} ..." Level="0"/>
     <Namespace Name="${NAMESPACE}" Code="${DBNAME}" Data="${DBNAME}" Create="yes" Ensemble="1">

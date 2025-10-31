@@ -14,6 +14,9 @@ XData ProductionDefinition
   </Item>
   <Item Name="Demo.BO.CustomerOperation" Category="" ClassName="Demo.BO.CustomerOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
   </Item>
+   <Item Name="Demo.BS.CustomerYAMLService" Category="" ClassName="Demo.BS.CustomerYAMLService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="CallInterval">5000</Setting>
+  </Item>
 </Production>
 }
 
